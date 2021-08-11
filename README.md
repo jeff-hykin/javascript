@@ -1,3 +1,15 @@
-# Setup
+# How do I use it?
 
-Everything is detailed in the `documentation/SETUP.md`!
+
+`npm install '@!!!!!/javascript'`
+
+```
+let { js } = require("@!!!!!/javascript")
+let {a,b} = js`
+    let b = 10
+    let a = 20
+    return {
+        a, b
+    }
+`
+```
