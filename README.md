@@ -4,7 +4,7 @@
 `npm install '@!!!!!/javascript'`
 
 ```
-let { js } = require("@!!!!!/javascript")
+let { js, asyncJs } = require("@!!!!!/javascript")
 let {a,b} = js`
     let b = 10
     let a = 20
