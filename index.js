@@ -11,13 +11,9 @@ module.exports = evaler = {
                 }
             }
         }
-        console.debug(`strings is:`,strings)
-        console.debug(`values is:`,values)
         for (safeNamespace.eachValue of safeNamespace.values) {
-            console.debug(`safeNamespace.eachValue is:`,safeNamespace.eachValue)
             if (safeNamespace.eachValue instanceof safeNamespace.Object) {
                 for (safeNamespace.eachDefinition of safeNamespace.Object.entries(safeNamespace.eachValue)) {
-                    console.debug(`safeNamespace.eachDefinition is:`,safeNamespace.eachDefinition)
                     // key = safeNamespace.eachDefinition[0]
                     // value = safeNamespace.eachDefinition[1]
                     // skip these edgecases
@@ -39,7 +35,7 @@ module.exports = evaler = {
         `)
     },
     asyncJs: (strings, ...values)=>{
-        var safeNamespace = {Object, key:null, value:null, strings:null, values:null, eachValue: null, eachDefinition: null, overwrittenDefinition: undefined, evalString: ""}
+        var safeNamespace = {Object, key:null, value:null, strings, values:[...values], eachValue: null, eachDefinition: null, overwrittenDefinition: undefined, evalString: ""}
         for (let each of strings) {
             safeNamespace.evalString += each
             // add variable name if needed
@@ -50,8 +46,6 @@ module.exports = evaler = {
                 }
             }
         }
-        safeNamespace.strings = strings
-        safeNamespace.values = values
         for (safeNamespace.eachValue of safeNamespace.values) {
             if (safeNamespace.eachValue instanceof safeNamespace.Object) {
                 for (safeNamespace.eachDefinition of safeNamespace.Object.entries(safeNamespace.eachValue)) {
