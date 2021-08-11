@@ -12,4 +12,10 @@ let {a,b} = js`
         a, b
     }
 `
+
+let g = ()=> {
+    let localA = "I'm local"
+    js`console.log(${{localA}})`
+}
+g() // works as expected
 ```
